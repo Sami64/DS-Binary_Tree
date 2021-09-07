@@ -39,6 +39,16 @@ Node *insertToTree(Node *root, char data) {
     return root;
 }
 
+Node *searchKey(Node *root, char data) {
+    if (root == NULL || root->data == data)
+        return root;
+    // Search value is greater than root
+    if (root->data < data)
+        return searchKey(root->right, data);
+    // Search value is less than root
+    return searchKey(root->left, data);
+}
+
 int main() {
     /*
                 M
